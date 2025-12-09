@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 export default function About() {
     const navigate = useNavigate();
   return (
-    <div className="w-full bg-black text-white py-16 px-4 md:px-12 mt-6">
+    <div className="w-full bg-black text-white py-16 px-4 md:px-12">
 
       {/* Heading */}
       <motion.h1
@@ -63,10 +63,10 @@ export default function About() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.4 }}
           whileHover={{ scale: 1.05 }}
-          className="flex items-center gap-2 bg-white  text-black transition px-10 py-4 rounded-xl font-bold shadow-lg w-full md:w-auto justify-center"
+          className="flex items-center gap-2 bg-white  text-black transition px-8 py-3 rounded-xl font-bold shadow-lg w-full md:w-auto justify-center"
           onClick={()=> navigate("/buy-ticket")}
         >
-          Buy Now <FaArrowRight size={18}  className="bg-purple-600 text-white p-[5px] rounded-full"/>
+          Buy Ticket <FaArrowRight size={18}  className="bg-purple-600 text-white p-[5px] rounded-full"/>
         </motion.button>
       </div>
     </div>

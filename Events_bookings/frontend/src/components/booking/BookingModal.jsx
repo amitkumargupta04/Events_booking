@@ -12,6 +12,7 @@ export default function BookingModal({ eventId, onClose }) {
 
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [error, setError] = useState(false); // <-- NEW STATE
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -36,7 +37,7 @@ export default function BookingModal({ eventId, onClose }) {
 
     } catch (err) {
       setLoading(false);
-      alert("Booking failed!");
+      setError(true); // <-- SHOW ERROR MESSAGE
     }
   };
 
@@ -59,7 +60,7 @@ export default function BookingModal({ eventId, onClose }) {
             Book Tickets
           </h2>
 
-          {/* SUCCESS ANIMATION */}
+          {/* SUCCESS MODAL */}
           {success ? (
             <motion.div
               initial={{ scale: 0.5, opacity: 0 }}
@@ -78,6 +79,34 @@ export default function BookingModal({ eventId, onClose }) {
                 Booking Successful!
               </p>
             </motion.div>
+          ) : error ? (
+
+            /* ERROR MODAL */
+            <motion.div
+              initial={{ scale: 0.5, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              className="text-center"
+            >
+              <motion.div
+                initial={{ rotate: 90, opacity: 0 }}
+                animate={{ rotate: 0, opacity: 1 }}
+                transition={{ duration: 0.8 }}
+                className="text-red-600 text-6xl font-bold"
+              >
+                ✕
+              </motion.div>
+              <p className="text-red-600 mt-3 text-lg font-semibold">
+                Booking Failed!
+              </p>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                onClick={() => setError(false)}
+                className="mt-4 bg-red-500 text-white py-2 px-4 rounded-lg"
+              >
+                Try Again
+              </motion.button>
+            </motion.div>
+
           ) : (
             <motion.form
               className="space-y-4"
@@ -85,7 +114,6 @@ export default function BookingModal({ eventId, onClose }) {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
             >
-              {/* INPUT ANIMATION */}
               {["name", "email", "mobile", "quantity"].map((field) => (
                 <motion.input
                   key={field}
@@ -110,7 +138,6 @@ export default function BookingModal({ eventId, onClose }) {
                 />
               ))}
 
-              {/* SUBMIT BUTTON WITH ANIMATION */}
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -122,7 +149,6 @@ export default function BookingModal({ eventId, onClose }) {
             </motion.form>
           )}
 
-          {/* CLOSE BUTTON */}
           <motion.button
             whileHover={{ scale: 1.05 }}
             className="mt-4 text-gray-600 hover:text-black w-full font-medium"

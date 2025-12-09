@@ -4,9 +4,9 @@ import { motion } from "framer-motion";
 export default function Conferences() {
   // Sample images, aap apni images replace kar sakte ho
   const images = [
-    "https://media.istockphoto.com/id/465525185/photo/wedding-planner-checking-table-decorations-in-marquee.jpg?s=612x612&w=0&k=20&c=j29jrBS3xKpcmkj5pUK_pxVIJ2cdMOpEHhe0wAJaLgI=",
-    "https://img.freepik.com/free-photo/new-year-spend-with-friends-celebrating_23-2149196991.jpg?semt=ais_se_enriched&w=740&q=80",
-    "https://img.freepik.com/free-photo/cheerful-man-having-fun-party_329181-4889.jpg",
+    "https://thumbs.dreamstime.com/b/business-man-pointing-something-conference-men-meeting-room-31009473.jpg",
+    "https://media.istockphoto.com/id/968943368/photo/the-goal-was-to-grow-and-we-did-it.jpg?s=612x612&w=0&k=20&c=ovpGfZbP-SUxvFPngfuyrNXYu2LmHZ5QDCrQiBqbITw=",
+    "https://media.istockphoto.com/id/1783739913/photo/happy-black-public-speaker-during-business-conference-in-convention-center-looking-at-camera.jpg?s=612x612&w=0&k=20&c=aPj6rCdrTYWHnEmPizombwH6Q1LvF4IGfqAteM4HQ8c=",
   ];
 
   return (

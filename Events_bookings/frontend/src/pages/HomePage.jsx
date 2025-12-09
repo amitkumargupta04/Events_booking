@@ -9,8 +9,8 @@ import About from '../components/home/About';
 function HomePage() {
   return (
     <div>
-      <About/>
       <MeetAllItMan/>
+      <About/>
       <Video/>
       <Conferences/>
       <PricingTickets/>

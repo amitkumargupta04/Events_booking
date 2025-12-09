@@ -16,7 +16,7 @@ const speakers = [
   {
     name: "Rohit Singh",
     position: "Frontend Developer",
-    img: "https://www.shutterstock.com/image-photo/successful-caucasian-young-man-student-260nw-2141124049.jpg",
+    img: "https://media.istockphoto.com/id/1369199360/photo/portrait-of-a-handsome-young-businessman-working-in-office.jpg?s=612x612&w=0&k=20&c=ujyGdu8jKI2UB5515XZA33Tt4DBhDU19dKSTUTMZvrg=",
   },
   {
     name: "Priya Verma",
@@ -36,7 +36,7 @@ export default function MeetAllItMan() {
       
       {/* Header */}
       <div className="max-w-5xl mx-auto text-center mb-16 text-white">
-        <h2 className="text-4xl md:text-5xl font-bold mb-4 text-orange-300">
+        <h2 className="text-4xl md:text-5xl font-bold mb-4 text-orange-300 mt-5">
           Meet All the Top IT Minds
         </h2>
         <p className="text-lg md:text-xl">
@@ -56,7 +56,7 @@ export default function MeetAllItMan() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: index * 0.25 }}
             whileHover={{ scale: 1.05 }}
-            className="overflow-hidden rounded-2xl"
+            className="overflow-hidden"
           >
             <img
               src={speaker.img}
@@ -79,7 +79,7 @@ export default function MeetAllItMan() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: index * 0.25 }}
             whileHover={{ scale: 1.05 }}
-            className="overflow-hidden rounded-2xl"
+            className="overflow-hidden"
           >
             <img
               src={speaker.img}

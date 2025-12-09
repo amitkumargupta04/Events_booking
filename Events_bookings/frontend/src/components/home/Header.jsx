@@ -33,7 +33,7 @@ export default function Header() {
           initial={{ x: 50, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ delay: 0.4, duration: 0.6 }}
-          className="bg-white text-black px-8 py-4 rounded-full font-semibold flex items-center gap-2 hover:bg-gray-200 cursor-pointer"
+          className="bg-white text-black px-6 py-3 rounded-full font-semibold flex items-center gap-2 hover:bg-gray-200 cursor-pointer"
           onClick={() => navigate("/buy-ticket")}
         >
           <span>Buy Tickets</span>
