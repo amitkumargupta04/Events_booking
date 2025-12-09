@@ -44,7 +44,7 @@ export default function BuyTicketDetails() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-100 py-12 px-4 md:px-10 relative">
+    <div className="min-h-screen bg-gray-100 py-12 px-4 md:px-10 relative mt-10">
       
       {/* HEADER TITLE WITH PARALLAX */}
       {/* <Parallax speed={-5}>

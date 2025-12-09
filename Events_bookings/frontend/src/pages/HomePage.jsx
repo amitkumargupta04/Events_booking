@@ -1,20 +1,22 @@
-import React from 'react';
-import Header from '../components/home/Header';
-import Hero from '../components/home/Hero';
-import Speakers from '../components/home/Speakers';
-import Pricing from '../components/home/Pricing';
+import React from 'react'
+import Video from '../components/home/Video';
+import Conferences from '../components/home/Conferences';
+import PricingTickets from '../components/home/PricingTickets';
 import FAQ from '../components/home/FAQ';
+import MeetAllItMan from '../components/home/MeetAllItMan';
+import About from '../components/home/About';
 
-export default function HomePage(){
-	return (
-		<div className="min-h-screen flex flex-col">
-			<main className="flex-1">
-				<Hero />
-				<Speakers />
-				<Pricing />
-				<FAQ />
-			</main>
-		</div>
-	);
+function HomePage() {
+  return (
+    <div>
+      <About/>
+      <MeetAllItMan/>
+      <Video/>
+      <Conferences/>
+      <PricingTickets/>
+      <FAQ/>
+    </div>
+  )
 }
 
+export default HomePage;
