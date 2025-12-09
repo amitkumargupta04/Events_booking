@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 export default function AdminLogin() {
   const [email, setEmail] = useState('');
@@ -32,6 +33,15 @@ export default function AdminLogin() {
 
       localStorage.setItem('token', token);
       localStorage.setItem('role', role);
+      // Show success toast
+      toast.success('Login Successful! Welcome back, Admin', {
+        position: 'top-right',
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true
+      });
       // redirect to admin dashboard (App routes `/admin` -> `/admin/events`)
       navigate('/admin');
     } catch (err) {

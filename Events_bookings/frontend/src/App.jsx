@@ -5,10 +5,24 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import AdminLayout from './layouts/AdminLayout';
 import UserLayout from './layouts/UserLayout';
 import AdminEvents from './pages/AdminEvents';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
     <BrowserRouter>
+      <ToastContainer
+        position="top-right"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
       <Routes>
         <Route path="/admin/login" element={<AdminLogin />} />
         <Route path="/admin" element={<AdminLayout />}>

@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { NavLink, useNavigate, Outlet } from 'react-router-dom';
 import { FaCalendarAlt } from 'react-icons/fa';
 import { FiMenu, FiLogOut } from 'react-icons/fi';
+import { toast } from 'react-toastify';
 
 export default function AdminLayout() {
 	const [open, setOpen] = useState(true);
@@ -11,8 +12,18 @@ export default function AdminLayout() {
 	function handleLogout() {
 		try {
 			localStorage.removeItem('token');
+			localStorage.removeItem('role');
 		} catch (e) {}
-		navigate('/login');
+		// Show logout toast
+		toast.success('Logged Out Successfully', {
+			position: 'top-right',
+			autoClose: 2000,
+			hideProgressBar: false,
+			closeOnClick: true,
+			pauseOnHover: true,
+			draggable: true
+		});
+		navigate('/admin/login');
 	}
 
 	return (
