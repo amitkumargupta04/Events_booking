@@ -7,6 +7,8 @@ import UserLayout from './layouts/UserLayout';
 import AdminEvents from './pages/AdminEvents';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import BuyTicket from './components/booking/BuyTicket';
+import BuyTicketDetails from './components/booking/BuyTicketDetails';
 
 function App() {
   return (
@@ -32,6 +34,8 @@ function App() {
 
         <Route path="/" element={<UserLayout />}>
           <Route index element={<HomePage />} />
+          <Route path='/buy-ticket' element = {<BuyTicket/>}/>
+          <Route path='/buy-ticket/:id' element = {<BuyTicketDetails/>}/>
         </Route>
 
         <Route path="*" element={<Navigate to="/" replace />} />

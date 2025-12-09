@@ -56,7 +56,7 @@ export default function AdminLogin() {
       {/* Left - imagery */}
       <div className="hidden md:flex w-1/2 bg-gray-100 items-center justify-center p-8">
         <div className="max-w-md">
-          <img src="https://images.unsplash.com/photo-1503424886302-3c73dbac6d6b?q=80&w=1200&auto=format&fit=crop" alt="event" className="rounded-lg shadow mb-6" />
+          <img src="https://www.shutterstock.com/image-photo/portrait-woman-typing-office-laptop-260nw-2488685749.jpg" alt="event" className="rounded-lg shadow mb-6" />
           <h2 className="text-3xl font-bold mb-2">Welcome Back, Admin</h2>
           <p className="text-gray-600">Manage events, view bookings and keep your platform running smoothly.</p>
         </div>
@@ -97,7 +97,7 @@ export default function AdminLogin() {
             </div>
 
             <div>
-              <button disabled={loading} type="submit" className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">
+              <button disabled={loading} type="submit" className="w-full bg-red-400 text-white py-2 rounded hover:bg-red-700">
                 {loading ? 'Signing in...' : 'Sign In'}
               </button>
             </div>

@@ -87,7 +87,7 @@ function Modal({ open, onClose, onSubmit, loading, editingEvent = null }) {
       <div className="bg-white rounded-none md:rounded-lg shadow-xl z-50 w-full h-full md:h-auto md:max-w-2xl md:max-h-[90vh] overflow-y-auto">
         {/* Modal Header */}
         <div className="sticky top-0 px-4 sm:px-6 py-4 border-b bg-white flex items-center justify-between">
-          <h3 className="text-lg sm:text-xl font-bold text-gray-900">{editingEvent ? '✏️ Edit Event' : '➕ Add New Event'}</h3>
+          <h3 className="text-lg sm:text-xl font-bold text-gray-900">{editingEvent ? 'Edit Event' : ' Add New Event'}</h3>
           <button onClick={onClose} className="text-gray-500 hover:text-gray-700 text-2xl font-light leading-none">×</button>
         </div>
 
@@ -339,26 +339,32 @@ export default function AdminEvents() {
 
   return (
     <div>
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 gap-3">
         <div className="flex items-center gap-3">
           <FaCalendarDay className="text-blue-600" />
           <h2 className="text-2xl font-semibold">Events</h2>
         </div>
 
-        <div className="flex items-center gap-2">
-          <button onClick={() => setIsOpen(true)} className="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded shadow hover:bg-blue-700">
-            <FaPlus /> Add Event
+        <div className="w-full sm:w-auto">
+          <button
+            onClick={() => setIsOpen(true)}
+            className="w-full sm:inline-flex justify-center items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded shadow hover:bg-blue-700"
+          >
+            <FaPlus />
+            <span className="ml-1 hidden sm:inline">Add Event</span>
+            <span className="sm:hidden">Add</span>
           </button>
         </div>
       </div>
 
       {error && <div className="mb-4 p-4 bg-red-50 text-red-600 rounded">{error}</div>}
 
-      <div className="bg-white rounded shadow overflow-x-auto">
+      {/* /* Desktop / Tablet Table */ }
+      <div className="hidden sm:block bg-white rounded shadow overflow-x-auto">
         <table className="min-w-full divide-y border-collapse">
           <thead className="bg-gray-50">
             <tr>
-              <th className="px-6 py-3 text-left text-sm font-medium text-gray-700 border-r border-gray-200">S.No</th>
+              <th className="px-6 py-3 text-left text-sm font-medium text-gray-700 border-r border-gray-200">#</th>
               <th className="px-6 py-3 text-left text-sm font-medium text-gray-700 border-r border-gray-200">Image</th>
               <th className="px-6 py-3 text-left text-sm font-medium text-gray-700 border-r border-gray-200">Title</th>
               <th className="px-6 py-3 text-left text-sm font-medium text-gray-700 border-r border-gray-200">Description</th>
@@ -403,6 +409,42 @@ export default function AdminEvents() {
             )}
           </tbody>
         </table>
+      </div>
+
+      {/* /* Mobile - stacked cards with vertical scroll */ }
+      <div className="sm:hidden mt-4">
+        <div className="space-y-3 max-h-[60vh] overflow-y-auto">
+          {events.length === 0 && (
+            <div className="p-4 bg-white rounded shadow text-center text-gray-500">No events yet — add one.</div>
+          )}
+          {events.map((ev, index) => (
+            <div key={ev.id} className="bg-white rounded shadow p-4">
+              <div className="flex items-start gap-3">
+                {ev.img ? (
+                  <img src={ev.img} alt={ev.title} className="h-16 w-16 object-cover rounded" />
+                ) : (
+                  <div className="h-16 w-16 bg-gray-200 rounded flex items-center justify-center text-xs text-gray-500">No img</div>
+                )}
+                <div className="flex-1">
+                  <div className="flex items-center justify-between">
+                    <h4 className="font-semibold">{index + 1}. {ev.title}</h4>
+                    <div className="flex items-center gap-2">
+                      <button onClick={() => handleEdit(ev)} className="p-2 rounded hover:bg-blue-50 text-blue-600"><FaEdit /></button>
+                      <button onClick={() => handleDelete(ev.id, ev.title)} className="p-2 rounded hover:bg-red-50 text-red-600"><FaTrash /></button>
+                    </div>
+                  </div>
+                  <p className="text-sm text-gray-600 mt-1 truncate">{ev.description}</p>
+                  <div className="mt-2 text-sm text-gray-700 flex flex-col gap-1">
+                    <span><strong>Date:</strong> {new Date(ev.date).toLocaleDateString()}</span>
+                    <span><strong>Location:</strong> {ev.location}</span>
+                    <span><strong>Price:</strong> ₹{parseFloat(ev.price).toFixed(2)}</span>
+                    <span><strong>Seats:</strong> {ev.available_seats}/{ev.total_seats}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
 
       <Modal open={isOpen} onClose={() => { setIsOpen(false); setEditingEvent(null); }} onSubmit={handleAdd} loading={loading} editingEvent={editingEvent} />
