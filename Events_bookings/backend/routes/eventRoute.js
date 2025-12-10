@@ -15,8 +15,7 @@ const router = express.Router();
 
 router.get("/all-events", getEvents);
 router.get("/filter", getEventsByLocationAndDate);
-// router.get("/location/:location", getEventsByLocation);
-// router.get("/date/:date", getEventsByDate);
+
 
 router.post("/create", protectAdmin, createEvent);
 router.put("/update/:id", protectAdmin, updateEvent);

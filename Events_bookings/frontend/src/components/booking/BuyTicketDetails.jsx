@@ -47,16 +47,16 @@ export default function BuyTicketDetails() {
     <div className="min-h-screen bg-gray-100 py-12 px-4 md:px-10 relative mt-10">
       
       {/* HEADER TITLE WITH PARALLAX */}
-      {/* <Parallax speed={-5}>
+      <Parallax speed={-5}>
         <motion.h1
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-4xl font-bold text-center mb-10"
+          className="text-4xl font-bold text-center mb-18"
         >
           {event.title}
         </motion.h1>
-      </Parallax> */}
+      </Parallax>
 
       {/* MAIN GRID */}
       <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
@@ -76,7 +76,7 @@ export default function BuyTicketDetails() {
           initial={{ opacity: 0, x: 40 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
-          className="bg-white p-6 rounded-2xl shadow-lg"
+          className="bg-white p-4 rounded-2xl shadow-lg"
         >
           <h2 className="text-3xl font-bold mb-4">{event.title}</h2>
 
